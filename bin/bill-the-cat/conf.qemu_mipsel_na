@@ -19,9 +19,10 @@
 # DEALINGS IN THE SOFTWARE.
 
 console_impl=qemu
-qemu_machine="vexpress-a15"
-qemu_binary="qemu-system-arm"
-qemu_extra_args="-nographic -m 1G -tftp /tftpboot"
-qemu_kernel_args="-kernel ${U_BOOT_BUILD_DIR}/u-boot"
+qemu_machine="mips"
+qemu_binary="qemu-system-mipsel"
+qemu_extra_args="-nographic -monitor null"
+qemu_kernel_args="-drive if=pflash,file=${U_BOOT_BUILD_DIR}/flash,format=raw"
+qemu_helper_script="qemu-mips"
 reset_impl=none
 flash_impl=none

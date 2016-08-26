@@ -19,9 +19,9 @@
 # DEALINGS IN THE SOFTWARE.
 
 console_impl=qemu
-qemu_machine="vexpress-a15"
-qemu_binary="qemu-system-arm"
-qemu_extra_args="-nographic -m 1G -tftp /tftpboot"
-qemu_kernel_args="-kernel ${U_BOOT_BUILD_DIR}/u-boot"
+qemu_machine="ppce500"
+qemu_binary="qemu-system-ppc"
+qemu_extra_args="-nographic"
+qemu_kernel_args="-bios ${U_BOOT_BUILD_DIR}/u-boot"
 reset_impl=none
 flash_impl=none

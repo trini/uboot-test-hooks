@@ -1,4 +1,4 @@
-# Copyright (c) 2016 Konsulko Group. All rights reserved.
+# Copyright (c) 2015, NVIDIA CORPORATION. All rights reserved.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -18,10 +18,13 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
-console_impl=qemu
-qemu_machine="vexpress-a15"
-qemu_binary="qemu-system-arm"
-qemu_extra_args="-nographic -m 1G -tftp /tftpboot"
-qemu_kernel_args="-kernel ${U_BOOT_BUILD_DIR}/u-boot"
-reset_impl=none
-flash_impl=none
+env__net_uses_usb = False
+
+env__net_dhcp_server = True
+
+env__net_tftp_readable_file = {
+    "fn": "8MiBtest.bin",
+    "addr": 0x1000000,
+    "size": 8388608,
+    "crc32": "faabefa7",
+}

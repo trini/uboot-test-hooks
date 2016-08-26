@@ -1,4 +1,4 @@
-# Copyright (c) 2016 Konsulko Group. All rights reserved.
+# Copyright (c) 2015, NVIDIA CORPORATION. All rights reserved.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -18,10 +18,10 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
-console_impl=qemu
-qemu_machine="vexpress-a15"
-qemu_binary="qemu-system-arm"
-qemu_extra_args="-nographic -m 1G -tftp /tftpboot"
-qemu_kernel_args="-kernel ${U_BOOT_BUILD_DIR}/u-boot"
-reset_impl=none
+console_dev=/dev/serial/by-path/pci-0000:02:00.0-usb-0:1.4.3.6:1.0-port0
+power_impl=digital-loggers
+reset_impl=digital-loggers
+power_port=2
+power_ip=192.168.0.236
 flash_impl=none
+download_impl=sunxi-fel
