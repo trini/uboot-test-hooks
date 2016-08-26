@@ -18,9 +18,9 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
-curl --data ${power_port}=CCL -o /dev/null --silent \
-	http://${power_user:-admin}:${power_pass:-1234}@${power_ip}/outlet
+# The sunxi-fel tool supports passing a bus:dev to use.  However this value
+# is not stable and may change over resets.  So at this time we assume that only
+# one board will be in FEL mode at a given time (or baring that, the first
+# available board is the one we are to test
 
-if [ ! -z "${download_impl}" ]; then
-    . "${bin_dir}/download.${download_impl}"
-fi
+sunxi-fel uboot "${U_BOOT_BUILD_DIR}"/u-boot-sunxi-with-spl.bin
